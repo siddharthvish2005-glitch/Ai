@@ -1,0 +1,28 @@
+n=int(input())
+a=list(map(int,input().split()))
+
+
+m = int(input())
+arr = []
+
+for _ in range(m):
+    arr.append(int(input()))
+
+
+
+a.sort()
+
+for money in arr:
+    left = 0
+    right = n - 1
+    ans = -1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if a[mid] <= money:
+            ans = mid       
+            left = mid + 1   
+        else:
+            right = mid - 1
+
+    print(ans + 1)
